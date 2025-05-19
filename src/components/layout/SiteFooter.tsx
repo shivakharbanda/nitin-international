@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import { Copyright } from 'lucide-react';
 
@@ -12,10 +13,10 @@ export default function SiteFooter() {
           <span>{currentYear} Nitin International. All rights reserved.</span>
         </div>
         <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 md:gap-4">
-          <Link href="/process-info#terms" className="text-sm hover:text-foreground transition-colors">
+          <Link href="/company-profile#terms" className="text-sm hover:text-foreground transition-colors">
             Terms of Service
           </Link>
-          <Link href="/process-info#privacy" className="text-sm hover:text-foreground transition-colors">
+          <Link href="/company-profile#privacy" className="text-sm hover:text-foreground transition-colors">
             Privacy Policy
           </Link>
           <Link href="/contact" className="text-sm hover:text-foreground transition-colors">
