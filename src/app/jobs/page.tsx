@@ -1,3 +1,4 @@
+
 "use client";
 
 import type { Metadata } from 'next';
@@ -180,24 +181,30 @@ export default function JobsPage() {
             </div>
             <div>
               <label htmlFor="category" className="block text-sm font-medium text-foreground/90 mb-1">Category</label>
-              <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+              <Select 
+                value={selectedCategory || "all_categories_placeholder"} 
+                onValueChange={(value) => setSelectedCategory(value === "all_categories_placeholder" ? undefined : value)}
+              >
                 <SelectTrigger id="category" className="w-full">
                   <SelectValue placeholder="All Categories" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Categories</SelectItem>
+                  <SelectItem value="all_categories_placeholder">All Categories</SelectItem>
                   {jobCategories.map(cat => <SelectItem key={cat} value={cat}>{cat}</SelectItem>)}
                 </SelectContent>
               </Select>
             </div>
              <div>
               <label htmlFor="location" className="block text-sm font-medium text-foreground/90 mb-1">Location</label>
-              <Select value={selectedLocation} onValueChange={setSelectedLocation}>
+              <Select 
+                value={selectedLocation || "all_locations_placeholder"} 
+                onValueChange={(value) => setSelectedLocation(value === "all_locations_placeholder" ? undefined : value)}
+              >
                 <SelectTrigger id="location" className="w-full">
                   <SelectValue placeholder="All Locations" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Locations</SelectItem>
+                  <SelectItem value="all_locations_placeholder">All Locations</SelectItem>
                   {jobLocations.map(loc => <SelectItem key={loc} value={loc}>{loc}</SelectItem>)}
                 </SelectContent>
               </Select>
@@ -205,12 +212,15 @@ export default function JobsPage() {
              <div className="flex space-x-2">
                 <div className="flex-grow">
                   <label htmlFor="type" className="block text-sm font-medium text-foreground/90 mb-1">Job Type</label>
-                  <Select value={selectedType} onValueChange={setSelectedType}>
+                  <Select 
+                    value={selectedType || "all_types_placeholder"} 
+                    onValueChange={(value) => setSelectedType(value === "all_types_placeholder" ? undefined : value)}
+                  >
                     <SelectTrigger id="type" className="w-full">
                       <SelectValue placeholder="All Types" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="">All Types</SelectItem>
+                      <SelectItem value="all_types_placeholder">All Types</SelectItem>
                       {jobTypes.map(type => <SelectItem key={type} value={type}>{type}</SelectItem>)}
                     </SelectContent>
                   </Select>
@@ -220,6 +230,23 @@ export default function JobsPage() {
                  </Button>
              </div>
             {/* Future filters like experience level can be added here */}
+            {/* 
+            <div>
+              <label htmlFor="experience" className="block text-sm font-medium text-foreground/90 mb-1">Experience Level</label>
+              <Select 
+                value={selectedExperience || "all_experience_placeholder"} 
+                onValueChange={(value) => setSelectedExperience(value === "all_experience_placeholder" ? undefined : value)}
+              >
+                <SelectTrigger id="experience" className="w-full">
+                  <SelectValue placeholder="All Levels" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all_experience_placeholder">All Levels</SelectItem>
+                  {experienceLevels.map(level => <SelectItem key={level} value={level}>{level}</SelectItem>)}
+                </SelectContent>
+              </Select>
+            </div>
+            */}
           </div>
         </div>
 
@@ -244,3 +271,5 @@ export default function JobsPage() {
     </>
   );
 }
+
+    
