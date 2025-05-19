@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from 'next/link';
@@ -5,23 +6,50 @@ import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
-import { Menu, X, Briefcase } from 'lucide-react';
+import { Menu, X, Briefcase, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
-interface NavItem {
+interface NavLinkItem {
   href: string;
   label: string;
 }
 
-const navItems: NavItem[] = [
+interface NavGroup {
+  label: string;
+  items: NavLinkItem[];
+}
+
+type TopLevelNavItem = NavLinkItem | NavGroup;
+
+const navItems: TopLevelNavItem[] = [
   { href: '/', label: 'Home' },
   { href: '/jobs', label: 'Jobs' },
   { href: '/recruiters', label: 'For Employers' },
   { href: '/recruits', label: 'For Job Seekers' },
-  { href: '/specializations', label: 'Specializations' },
-  { href: '/process-info', label: 'Process & Terms' },
+  {
+    label: 'About Us',
+    items: [
+      { href: '/specializations', label: 'Our Specializations' },
+      { href: '/process-info', label: 'Our Process & Terms' },
+    ]
+  },
   { href: '/contact', label: 'Contact Us' },
 ];
+
+// Flattened list for mobile menu
+const allMobileNavLinks = navItems.flatMap(item => {
+  if ('items' in item) { // It's a NavGroup
+    return item.items.map(subItem => ({ ...subItem, groupLabel: item.label })); // Keep group label for context if needed, or just subItem
+  }
+  return item; // It's a NavLinkItem
+});
+
 
 export default function SiteHeader() {
   const pathname = usePathname();
@@ -33,7 +61,7 @@ export default function SiteHeader() {
   }, []);
 
 
-  const NavLink = ({ href, label, onClick }: NavItem & { onClick?: () => void }) => (
+  const NavLink = ({ href, label, onClick, className }: NavLinkItem & { onClick?: () => void, className?: string }) => (
     <Link href={href} passHref>
       <Button
         variant="ghost"
@@ -42,7 +70,8 @@ export default function SiteHeader() {
           pathname === href
             ? "text-[hsl(var(--primary))] hover:text-[hsl(var(--primary))]/90"
             : "text-foreground/80 hover:text-foreground",
-          "justify-start w-full md:w-auto px-3 py-2 md:px-4"
+          "justify-start w-full md:w-auto px-3 py-2 md:px-4",
+          className
         )}
         onClick={onClick}
       >
@@ -75,9 +104,41 @@ export default function SiteHeader() {
         </Link>
 
         <nav className="hidden md:flex items-center space-x-1">
-          {navItems.map((item) => (
-            <NavLink key={item.href} {...item} />
-          ))}
+          {navItems.map((item) => {
+            if ('items' in item) { // This is a NavGroup for DropdownMenu
+              const isDropdownActive = item.items.some(subItem => pathname === subItem.href);
+              return (
+                <DropdownMenu key={item.label}>
+                  <DropdownMenuTrigger asChild>
+                    <Button
+                      variant="ghost"
+                      className={cn(
+                        "text-sm font-medium flex items-center gap-1",
+                        isDropdownActive
+                          ? "text-[hsl(var(--primary))] hover:text-[hsl(var(--primary))]/90"
+                          : "text-foreground/80 hover:text-foreground",
+                        "px-3 py-2 md:px-4"
+                      )}
+                    >
+                      {item.label}
+                      <ChevronDown className="h-4 w-4" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="start" className="bg-background shadow-lg">
+                    {item.items.map((subItem) => (
+                      <DropdownMenuItem key={subItem.href} asChild className={cn(pathname === subItem.href ? "bg-muted font-medium text-[hsl(var(--primary))]" : "")}>
+                        <Link href={subItem.href} className="w-full justify-start px-2 py-1.5">
+                           {subItem.label}
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              );
+            }
+            // This is a NavLinkItem
+            return <NavLink key={item.href} href={item.href} label={item.label} />;
+          })}
         </nav>
 
         <div className="md:hidden">
@@ -102,8 +163,13 @@ export default function SiteHeader() {
                 </SheetClose>
               </div>
               <nav className="flex flex-col space-y-2">
-                {navItems.map((item) => (
-                  <NavLink key={item.href} {...item} onClick={() => setIsMobileMenuOpen(false)} />
+                {allMobileNavLinks.map((link) => (
+                  <NavLink 
+                    key={link.href} 
+                    href={link.href} 
+                    label={link.label} 
+                    onClick={() => setIsMobileMenuOpen(false)} 
+                  />
                 ))}
               </nav>
             </SheetContent>
@@ -113,3 +179,4 @@ export default function SiteHeader() {
     </header>
   );
 }
+
