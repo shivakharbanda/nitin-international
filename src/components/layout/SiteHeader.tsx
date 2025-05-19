@@ -16,7 +16,7 @@ import {
   DropdownMenuSub,
   DropdownMenuSubTrigger,
   DropdownMenuSubContent,
-  DropdownMenuPortal, // Added for sub-menus
+  DropdownMenuPortal,
 } from "@/components/ui/dropdown-menu";
 
 // --- Updated Type Definitions ---
@@ -26,24 +26,20 @@ interface NavLinkItem {
   isExternal?: boolean;
 }
 
-// Represents an item that, when clicked in a dropdown, opens a sub-dropdown
 interface NavSubmenuTriggerItem {
   type: 'submenu';
   label: string;
-  items: NavLinkItem[]; // Submenu items are direct links
+  items: NavLinkItem[];
 }
 
-// An item in a top-level dropdown can now be a direct link or a submenu trigger
 type DropdownContentItem = NavLinkItem | NavSubmenuTriggerItem;
 
-// Represents a top-level dropdown menu in the main navbar
 interface NavDropdownItem {
   type: 'dropdown';
   label: string;
   items: DropdownContentItem[];
 }
 
-// A top-level navigation item can be a direct link or a dropdown
 type NavItem = NavLinkItem | NavDropdownItem;
 // --- End of Updated Type Definitions ---
 
@@ -60,21 +56,31 @@ const internationalRecruitmentSubLinks: NavLinkItem[] = [
   { href: '/specializations', label: 'Our Specializations' },
 ];
 
+const visaAssistanceSubLinks: NavLinkItem[] = [
+  { href: '/visa-assistance/kuwait-embassy', label: 'Kuwait Embassy' },
+  { href: '/visa-assistance/saudi-embassy', label: 'Saudi Embassy' },
+  { href: '/visa-assistance/saudi-culture', label: 'Saudi Culture' },
+];
+
 const servicesDropdownItems: DropdownContentItem[] = [
   {
     type: 'submenu',
     label: 'International Recruitments',
     items: internationalRecruitmentSubLinks,
   },
-  { href: '/visa-assistance', label: 'Visa Assistance' },
+  {
+    type: 'submenu',
+    label: 'Visa Assistance',
+    items: visaAssistanceSubLinks,
+  },
   { href: '/documents-attestation', label: 'Documents Attestation' },
 ];
 
 const navItems: NavItem[] = [
   { href: '/', label: 'Home' },
   { href: '/jobs', label: 'Jobs' },
-  { href: '/recruiters', label: 'For Employers' }, // Direct link, also in submenu
-  { href: '/recruits', label: 'For Job Seekers' },   // Direct link, also in submenu
+  { href: '/recruiters', label: 'For Employers' }, 
+  { href: '/recruits', label: 'For Job Seekers' },   
   { type: 'dropdown', label: 'About', items: aboutDropdownItems },
   { type: 'dropdown', label: 'Services', items: servicesDropdownItems },
   { href: '/contact', label: 'Contact Us' },
@@ -180,7 +186,6 @@ export default function SiteHeader() {
                               )}
                             >
                               <span>{subItem.label}</span>
-                              {/* ChevronRight is default in DropdownMenuSubTrigger */}
                             </DropdownMenuSubTrigger>
                             <DropdownMenuPortal>
                               <DropdownMenuSubContent className="bg-background shadow-lg">
@@ -204,7 +209,6 @@ export default function SiteHeader() {
                           </DropdownMenuSub>
                         );
                       }
-                      // Regular NavLinkItem in dropdown
                       return (
                         <DropdownMenuItem key={subItem.href} asChild>
                           <Link 
@@ -225,7 +229,6 @@ export default function SiteHeader() {
                 </DropdownMenu>
               );
             }
-            // Top-level NavLinkItem
             return <NavLink key={item.href} href={item.href} label={item.label} isExternal={item.isExternal} />;
           })}
         </nav>
@@ -272,7 +275,7 @@ export default function SiteHeader() {
                             />
                           );
                         });
-                      } else { // NavLinkItem
+                      } else { 
                         sectionLinks.push(
                           <NavLink 
                             key={subItem.href} 
@@ -287,7 +290,6 @@ export default function SiteHeader() {
                     });
                     return sectionLinks;
                   }
-                  // Top-level NavLinkItem
                   return (
                     <NavLink 
                       key={item.href} 
