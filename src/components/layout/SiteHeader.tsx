@@ -15,10 +15,11 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { href: '/', label: 'Home' },
-  { href: '/recruiters', label: 'For Employers' }, // Updated label
-  { href: '/recruits', label: 'For Job Seekers' }, // Updated label
+  { href: '/jobs', label: 'Jobs' },
+  { href: '/recruiters', label: 'For Employers' },
+  { href: '/recruits', label: 'For Job Seekers' },
   { href: '/specializations', label: 'Specializations' },
-  { href: '/process-info', label: 'Process & Terms' }, // Updated label
+  { href: '/process-info', label: 'Process & Terms' },
   { href: '/contact', label: 'Contact Us' },
 ];
 
