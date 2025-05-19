@@ -5,7 +5,7 @@ import { SectionWrapper } from '@/components/ui/SectionWrapper';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { FeatureCard } from '@/components/ui/FeatureCard';
-import { Briefcase, CheckCircle, Cog, Stethoscope, TerminalSquare, ConciergeBell, Users, Building, HardHat, Car, Lightbulb, Target, UserCheck, ClipboardList, Rocket, FileText, ShieldCheck, Eye, GitCommit, Handshake, Award } from 'lucide-react';
+import { Briefcase, GitBranch, Stethoscope, TerminalSquare, ConciergeBell, Users, Building, HardHat, Car, Lightbulb, Target, ShieldCheck, Eye, Handshake, Award, FileText } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'About Nitin International - Our Story, Values, and Expertise',
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 const specializationsList = [
   {
-    icon: Cog,
+    icon: TerminalSquare, // Changed from Cog to be more distinct from process
     title: 'Engineering Professionals',
     description: 'Sourcing diverse engineering talent: Civil, Mechanical, Electrical, Software. For infrastructure, tech development, and more, tailored to global demands.',
     details: 'Network includes PEs, chartered engineers, project managers, skilled technicians.'
@@ -61,29 +61,6 @@ const specializationsList = [
     description: 'Sourcing HR Managers, Recruitment Specialists, Office Managers, Executive Assistants, and crucial support roles for organizational efficiency.',
     details: 'Candidates with strong organizational skills for multicultural environments.'
   }
-];
-
-const processSteps = [
-  {
-    icon: ClipboardList,
-    title: '1. Requirement Analysis',
-    description: 'Employers submit job requirements; candidates submit profiles. We thoroughly understand needs to initiate precise matching.',
-  },
-  {
-    icon: UserCheck,
-    title: '2. Candidate Sourcing & Screening',
-    description: 'We source candidates through our extensive network and meticulously screen them, including background and reference checks.',
-  },
-  {
-    icon: CheckCircle,
-    title: '3. Interview & Shortlisting',
-    description: 'We coordinate interviews and shortlist the most suitable candidates based on skills, experience, and cultural fit.',
-  },
-  {
-    icon: Rocket,
-    title: '4. Offer, Placement & Onboarding',
-    description: 'We assist with offer negotiation, visa processing, placement, and provide post-placement support for smooth integration.',
-  },
 ];
 
 
@@ -143,7 +120,7 @@ export default function AboutUsPage() {
 
       <SectionWrapper id="core-values">
         <div className="text-center mb-12">
-          <GitCommit className="mx-auto h-12 w-12 text-[hsl(var(--primary))] mb-3" />
+          <Handshake className="mx-auto h-12 w-12 text-[hsl(var(--primary))] mb-3" /> {/* Changed from GitCommit */}
           <h2 className="text-3xl font-bold tracking-tight text-[hsl(var(--heading-blue))] sm:text-4xl">
             Our Core Values
           </h2>
@@ -210,34 +187,87 @@ export default function AboutUsPage() {
         </div>
       </SectionWrapper>
 
-      <SectionWrapper id="recruitment-process" className="bg-secondary/30">
+      <SectionWrapper id="recruitment-procedure" className="bg-secondary/30">
         <div className="text-center mb-12">
-          <Cog className="mx-auto h-12 w-12 text-[hsl(var(--primary))] mb-3" />
+          <GitBranch className="mx-auto h-12 w-12 text-[hsl(var(--primary))] mb-3" />
           <h2 className="text-3xl font-bold tracking-tight text-[hsl(var(--heading-blue))] sm:text-4xl">
-            Our Recruitment Process
+            Our Recruitment Procedure
           </h2>
-          <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto">
-            We follow a structured and transparent process to ensure the best outcomes for both candidates and employers.
+          <p className="mt-4 text-lg text-foreground/80 max-w-3xl mx-auto">
+            We follow a meticulous and collaborative process to ensure a seamless experience for both employers and candidates. Our procedure is designed for efficiency, transparency, and successful placements.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {processSteps.map((step, index) => (
-            <Card key={index} className="text-center shadow-md hover:shadow-lg transition-shadow duration-300 h-full bg-card">
-              <CardHeader>
-                <div className="p-3 rounded-full bg-[hsl(var(--primary))] text-primary-foreground inline-block mb-4">
-                  <step.icon className="h-8 w-8" />
-                </div>
-                <CardTitle className="text-xl font-semibold text-[hsl(var(--heading-blue))]">{step.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-foreground/80">{step.description}</p>
-              </CardContent>
-            </Card>
-          ))}
+
+        <Card className="mb-10 shadow-md bg-card">
+          <CardHeader>
+            <CardTitle className="text-xl text-[hsl(var(--heading-blue))]">Process Overview</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-foreground/80 mb-4">The recruitment journey typically follows these key stages:</p>
+            <ol className="list-decimal list-inside space-y-2 text-foreground/80 pl-4">
+              <li>Client Requirement Submission</li>
+              <li>Nitin International's Initial Processing & Sourcing</li>
+              <li>Candidate Screening & Shortlisting of Candidates</li>
+              <li>Interviews (conducted by employer or representative)</li>
+              <li>Medical Examination</li>
+              <li>Immigration & Visa Formalities</li>
+              <li>Ticketing & Travel Arrangements</li>
+              <li>Candidate Departure & Arrival Confirmation</li>
+            </ol>
+          </CardContent>
+        </Card>
+
+        <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
+          <Card className="shadow-md bg-card">
+            <CardHeader>
+              <div className="flex items-center gap-3">
+                <Briefcase className="h-8 w-8 text-[hsl(var(--primary))]" />
+                <CardTitle className="text-xl text-[hsl(var(--heading-blue))]">Our Responsibilities (Agency's Role)</CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <ul className="list-disc list-inside space-y-3 text-foreground/80 pl-4">
+                <li>We always prefer selection of applicant either by oral or practical test to be conducted by the employer or his authorized representative.</li>
+                <li>Final screening and short listing of candidates we accumulate enough no of potential candidates qualifying the requirement by qualification, experience, employee specifications and etc.</li>
+                <li>We send resume to the employer for FINAL SCREENING AND SHORTLISTING of candidates.</li>
+                <li>On obtaining the list of final shortlisted candidates, we FINALIZE THE INTERVIEW DATES and obtain necessary legal permission from emigration authorities.</li>
+                <li>After final selection we send the candidates for MEDICAL CHECK UP by the authorized medical center of the respective Embassies of the country of Employment.</li>
+                <li>Verification, Attestation of certificates.</li>
+                <li>Prepare the necessary documentation for visa process.</li>
+                <li>Apply for emigration clearance.</li>
+                <li>The employer send confirmed Air Tickets to facilitate travelling as scheduled.</li>
+                <li>Handover all the documents to candidate.</li>
+                <li>Confirm receipt of candidate arrival.</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="shadow-md bg-card">
+            <CardHeader>
+               <div className="flex items-center gap-3">
+                <Users className="h-8 w-8 text-[hsl(var(--primary))]" />
+                <CardTitle className="text-xl text-[hsl(var(--heading-blue))]">Employer's Responsibilities</CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-4 text-foreground/80">
+              <div>
+                <h4 className="font-semibold text-foreground mb-1">1. Demand Letter:</h4>
+                <p className="pl-4">The Employer will formally issue a Demand Letter in Favor of “Nitin International” on the company letter head duly stamped & sign mentioning job categories, Number of Workers required monthly salary, Contract period & other benefits etc.</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-foreground mb-1">2. Letter of Authority:</h4>
+                <p className="pl-4">The Employer will issue letter of Authority in favor of “Nitin International” on the company letter head duly stamped & sign addressed to concern Embassy in India, giving authority to Placement Agency to deal with Interviews, visa related matters, etc.</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-foreground mb-1">3. Agreement of Employment:</h4>
+                <p className="pl-4">This is a standard employment contract on the company letter head duly stamped & sign between Employer & Employee which is required to get immigration from immigration authorities in India.</p>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </SectionWrapper>
 
-      <SectionWrapper id="authorizations">
+      <SectionWrapper id="authorizations" className="bg-muted">
         <div className="max-w-3xl mx-auto">
             <div className="text-center mb-10">
                 <Award className="mx-auto h-12 w-12 text-[hsl(var(--primary))] mb-3" />
@@ -249,23 +279,23 @@ export default function AboutUsPage() {
                 <CardContent className="space-y-4 text-foreground/80">
                     <div>
                         <h3 className="font-semibold text-lg text-foreground mb-1">Authorized by:</h3>
-                        <ul className="list-disc list-inside space-y-1 pl-2">
+                        <ul className="list-disc list-inside space-y-1 pl-4">
                             <li>“Royal Embassy of Saudi Arabia” New Delhi, India</li>
                             <li>“Embassy of the state of Kuwait” Delhi, India (for dealing with all visa related matters and clearing of visa)</li>
                         </ul>
                     </div>
                     <div>
                         <h3 className="font-semibold text-lg text-foreground mb-1">License:</h3>
-                        <p>We are registered with Ministry of Overseas Indian Affairs, Government of India for manpower recruitment.</p>
-                        <p>Registration No: B-0717/DEL/PER/1000+/3/3674/93</p>
-                        <p className="text-sm text-muted-foreground">(Original license valid until 4th Aug, 2018 - Please contact us for current status)</p>
+                        <p className="pl-4">We are registered with Ministry of Overseas Indian Affairs, Government of India for manpower recruitment.</p>
+                        <p className="pl-4">Registration No: B-0717/DEL/PER/1000+/3/3674/93</p>
+                        <p className="text-sm text-muted-foreground pl-4">(Original license valid until 4th Aug, 2018 - Please contact us for current status)</p>
                     </div>
                 </CardContent>
             </Card>
         </div>
       </SectionWrapper>
 
-      <SectionWrapper id="terms-privacy" className="bg-muted">
+      <SectionWrapper id="terms-privacy">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
             <FileText className="mx-auto h-12 w-12 text-[hsl(var(--primary))] mb-3" />
@@ -297,5 +327,3 @@ export default function AboutUsPage() {
     </>
   );
 }
-
-    
