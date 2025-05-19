@@ -1,7 +1,8 @@
+
 import { Metadata } from 'next';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
 import { RecruitForm } from '@/components/forms/RecruitForm';
-import { UserCheck, Globe, Award, ArrowTrendingUp } from 'lucide-react';
+import { UserCheck, Globe, Award, TrendingUp } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'For Job Seekers - Nitin International',
@@ -51,7 +52,7 @@ export default function RecruitsPage() {
               </div>
                <div className="flex items-start gap-4 p-4 rounded-lg bg-secondary/30 shadow">
                   <div className="p-2 rounded-full bg-[hsl(var(--primary))] text-primary-foreground mt-1">
-                    <ArrowTrendingUp className="h-6 w-6" />
+                    <TrendingUp className="h-6 w-6" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-foreground">Career Advancement</h3>
