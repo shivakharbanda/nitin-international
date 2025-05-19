@@ -37,8 +37,9 @@ const aboutDropdownItems: NavLinkItem[] = [
 ];
 
 const servicesDropdownItems: NavLinkItem[] = [
-  { href: '/specializations', label: 'Our Specializations' },
-  // Add more service links here if needed
+  { href: '/international-recruitments', label: 'International Recruitments' },
+  { href: '/visa-assistance', label: 'Visa Assistance' },
+  { href: '/documents-attestation', label: 'Documents Attestation' },
 ];
 
 const navItems: NavItem[] = [
