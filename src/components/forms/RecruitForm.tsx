@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { RecruitFormSchema, type RecruitFormValues } from "@/lib/types";
+import { UploadCloud, Send } from "lucide-react";
 
 export function RecruitForm() {
   const { toast } = useToast();
@@ -43,14 +44,15 @@ export function RecruitForm() {
     toast({
       title: "Application Submitted!",
       description: "Thank you for your application. We will review your profile and contact you if there's a suitable opportunity.",
+      variant: "default",
     });
     form.reset();
   }
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <div className="grid md:grid-cols-2 gap-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <div className="grid md:grid-cols-2 gap-x-6 gap-y-4">
           <FormField
             control={form.control}
             name="fullName"
@@ -110,7 +112,9 @@ export function RecruitForm() {
               <FormItem>
                 <FormLabel>Years of Experience</FormLabel>
                 <FormControl>
-                  <Input type="number" min="0" {...field} />
+                  <Input type="number" min="0" {...field} 
+                    onChange={e => field.onChange(parseInt(e.target.value,10) || 0)}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -119,19 +123,22 @@ export function RecruitForm() {
            <FormField
             control={form.control}
             name="cvFile"
-            render={({ field }) => (
+            render={({ field }) => ( // RHF requires field.onChange to handle FileList
               <FormItem>
                 <FormLabel>CV/Resume (PDF, DOC, DOCX - Max 5MB)</FormLabel>
                 <FormControl>
-                  {/* Basic file input. For advanced features like preview or progress, a custom component would be needed. */}
-                  <Input 
-                    type="file" 
-                    accept=".pdf,.doc,.docx"
-                    onChange={(e) => field.onChange(e.target.files)} // RHF expects FileList or single File
-                  />
+                  <div className="relative">
+                    <Input 
+                      type="file" 
+                      accept=".pdf,.doc,.docx,.txt"
+                      className="pl-10"
+                      onChange={(e) => field.onChange(e.target.files ? e.target.files[0] : null)}
+                    />
+                    <UploadCloud className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                  </div>
                 </FormControl>
                 <FormDescription>
-                  Upload your latest CV. This is a crucial part of your application.
+                  Upload your latest CV. This is crucial for your application.
                 </FormDescription>
                 <FormMessage />
               </FormItem>
@@ -155,8 +162,8 @@ export function RecruitForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" size="lg" className="w-full md:w-auto bg-[hsl(var(--accent))] hover:bg-[hsl(var(--accent))]/90 text-accent-foreground">
-          Submit Application
+        <Button type="submit" size="lg" className="w-full md:w-auto">
+          Submit Application <Send className="ml-2 h-4 w-4" />
         </Button>
       </form>
     </Form>

@@ -5,7 +5,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { ListChecks, UserCheck, ClipboardList, Rocket, FileText, ShieldCheck } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Our Process & Terms - Nitin International Bridge',
+  title: 'Our Process & Terms - Nitin International',
   description: 'Understand our recruitment process, and review our terms and conditions for a transparent partnership.',
 };
 
@@ -50,9 +50,11 @@ export default function ProcessInfoPage() {
       <SectionWrapper>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {processSteps.map((step, index) => (
-            <Card key={index} className="text-center shadow-md h-full">
+            <Card key={index} className="text-center shadow-md hover:shadow-lg transition-shadow duration-300 h-full">
               <CardHeader>
-                <step.icon className="mx-auto h-12 w-12 text-[hsl(var(--primary))] mb-3" />
+                <div className="p-3 rounded-full bg-[hsl(var(--primary))] text-primary-foreground inline-block mb-4">
+                  <step.icon className="h-8 w-8" />
+                </div>
                 <CardTitle className="text-xl font-semibold text-[hsl(var(--heading-blue))]">{step.title}</CardTitle>
               </CardHeader>
               <CardContent>
@@ -63,7 +65,7 @@ export default function ProcessInfoPage() {
         </div>
       </SectionWrapper>
 
-      <SectionWrapper id="terms" className="bg-secondary">
+      <SectionWrapper id="terms" className="bg-secondary/50">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
             <FileText className="mx-auto h-12 w-12 text-[hsl(var(--primary))] mb-3" />
@@ -71,11 +73,11 @@ export default function ProcessInfoPage() {
               Terms and Conditions
             </h2>
           </div>
-          <Accordion type="single" collapsible className="w-full">
+          <Accordion type="single" collapsible className="w-full bg-background p-4 sm:p-6 rounded-lg shadow">
             <AccordionItem value="item-1">
               <AccordionTrigger className="text-lg font-medium hover:text-[hsl(var(--primary))]">Service Overview</AccordionTrigger>
               <AccordionContent className="text-foreground/80">
-                Nitin International Bridge provides recruitment services connecting job seekers with employers. Our services include sourcing, screening, interview coordination, and placement support. We strive to offer accurate and up-to-date information, but do not guarantee employment or successful placements for all applicants or fulfillment of all employer vacancies.
+                Nitin International provides recruitment services connecting job seekers with employers. Our services include sourcing, screening, interview coordination, and placement support. We strive to offer accurate and up-to-date information, but do not guarantee employment or successful placements for all applicants or fulfillment of all employer vacancies.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-2">
@@ -93,7 +95,7 @@ export default function ProcessInfoPage() {
              <AccordionItem value="item-4">
               <AccordionTrigger className="text-lg font-medium hover:text-[hsl(var(--primary))]">Limitation of Liability</AccordionTrigger>
               <AccordionContent className="text-foreground/80">
-                Nitin International Bridge shall not be liable for any indirect, incidental, special, consequential or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the services.
+                Nitin International shall not be liable for any indirect, incidental, special, consequential or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the services.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
@@ -108,7 +110,7 @@ export default function ProcessInfoPage() {
               Privacy Policy
             </h2>
           </div>
-           <Accordion type="single" collapsible className="w-full">
+           <Accordion type="single" collapsible className="w-full bg-background p-4 sm:p-6 rounded-lg shadow">
             <AccordionItem value="privacy-1">
               <AccordionTrigger className="text-lg font-medium hover:text-[hsl(var(--primary))]">Information Collection</AccordionTrigger>
               <AccordionContent className="text-foreground/80">

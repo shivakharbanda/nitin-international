@@ -5,8 +5,8 @@ import { Mail, Phone, MapPin } from 'lucide-react';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: 'Contact Us - Nitin International Bridge',
-  description: 'Get in touch with Nitin International Bridge for your recruitment needs or career inquiries. We are here to help.',
+  title: 'Contact Us - Nitin International',
+  description: 'Get in touch with Nitin International for your recruitment needs or career inquiries. We are here to help.',
 };
 
 export default function ContactPage() {
@@ -60,18 +60,18 @@ export default function ContactPage() {
                 <div>
                   <h3 className="font-semibold text-lg">Email</h3>
                   <p className="text-foreground/80">
-                    <a href="mailto:info@nitinbridge.com" className="hover:text-[hsl(var(--primary))] transition-colors">
-                      info@nitinbridge.com
+                    <a href="mailto:info@nitinint.com" className="hover:text-[hsl(var(--primary))] transition-colors">
+                      info@nitinint.com
                     </a> (General Inquiries)
                   </p>
                   <p className="text-foreground/80">
-                    <a href="mailto:careers@nitinbridge.com" className="hover:text-[hsl(var(--primary))] transition-colors">
-                      careers@nitinbridge.com
+                    <a href="mailto:careers@nitinint.com" className="hover:text-[hsl(var(--primary))] transition-colors">
+                      careers@nitinint.com
                     </a> (Job Seekers)
                   </p>
                    <p className="text-foreground/80">
-                    <a href="mailto:partners@nitinbridge.com" className="hover:text-[hsl(var(--primary))] transition-colors">
-                     partners@nitinbridge.com
+                    <a href="mailto:partners@nitinint.com" className="hover:text-[hsl(var(--primary))] transition-colors">
+                     partners@nitinint.com
                     </a> (Employers)
                   </p>
                 </div>
@@ -80,7 +80,7 @@ export default function ContactPage() {
             <div className="mt-8">
                  <Image 
                     src="https://placehold.co/600x400.png" 
-                    alt="Contact map placeholder" 
+                    alt="Map illustration showing office location" 
                     width={600}
                     height={400}
                     className="rounded-lg shadow-md w-full object-cover"

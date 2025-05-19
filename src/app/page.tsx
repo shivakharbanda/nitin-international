@@ -4,66 +4,74 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/com
 import { HeroSection } from '@/components/ui/HeroSection';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
 import { FeatureCard } from '@/components/ui/FeatureCard';
-import { Briefcase, Users, Cog, Stethoscope, ArrowRight, Target } from 'lucide-react';
+import { Briefcase, Users, Cog, Stethoscope, ArrowRight, Target, BuildingIcon, Globe } from 'lucide-react';
 import Image from 'next/image';
 
 export default function HomePage() {
   return (
     <>
       <HeroSection
-        title="Nitin International Bridge"
-        subtitle="Connecting exceptional talent with premier opportunities in the Middle East and beyond. We bridge the gap for professionals and employers."
-        ctaText="Explore Opportunities"
+        title="Nitin International"
+        subtitle="Bridging exceptional talent with premier global opportunities. Your partner in navigating the future of work, especially in the Middle East."
+        ctaText="Discover Your Next Opportunity"
         ctaLink="/specializations"
         ctaVariant="default"
-        imageSrc="https://placehold.co/600x600.png"
-        imageAlt="Global connections"
-        imageAiHint="global network connection"
+        imageSrc="https://placehold.co/700x500.png"
+        imageAlt="Global business network"
+        imageAiHint="global business"
         contentAlignment="left"
       />
 
-      <SectionWrapper id="for-who" className="bg-secondary">
+      <SectionWrapper id="for-who" className="bg-secondary/50 py-16 md:py-20">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold tracking-tight text-[hsl(var(--heading-blue))] sm:text-4xl">
-            Are You a Recruiter or a Job Seeker?
+            Tailored Solutions For You
           </h2>
-          <p className="mt-4 text-lg text-foreground/80">
-            We cater to both sides of the employment equation. Find what you're looking for.
+          <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto">
+            Whether you're an organization seeking top-tier professionals or an individual ready for a new challenge, we have you covered.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 gap-8">
-          <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+          <Card className="shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-card flex flex-col">
             <CardHeader>
-              <div className="flex items-center gap-4">
-                <Briefcase className="h-10 w-10 text-[hsl(var(--primary))]" />
-                <CardTitle className="text-2xl font-semibold text-[hsl(var(--heading-blue))]">For Recruiters</CardTitle>
+              <div className="flex items-center gap-4 mb-2">
+                <div className="p-3 rounded-full bg-[hsl(var(--primary))] text-primary-foreground">
+                  <BuildingIcon className="h-8 w-8" />
+                </div>
+                <CardTitle className="text-2xl font-semibold text-[hsl(var(--heading-blue))]">For Employers</CardTitle>
               </div>
             </CardHeader>
-            <CardContent>
-              <CardDescription className="mb-6 text-foreground/80">
-                Access a pool of qualified and vetted professionals ready to make an impact. We streamline your hiring process for specialized roles.
+            <CardContent className="flex-grow">
+              <CardDescription className="mb-6 text-foreground/70 text-base">
+                Access a curated pool of qualified, vetted professionals ready to drive your organization's success. We streamline your hiring process for specialized roles, ensuring you find the perfect fit.
               </CardDescription>
+            </CardContent>
+            <CardContent>
               <Link href="/recruiters" passHref>
-                <Button variant="outline" className="w-full md:w-auto group">
+                <Button variant="outline" className="w-full group border-[hsl(var(--primary))] text-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))] hover:text-primary-foreground">
                   Find Talent <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
             </CardContent>
           </Card>
-          <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <Card className="shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-card flex flex-col">
             <CardHeader>
-              <div className="flex items-center gap-4">
-                <Users className="h-10 w-10 text-[hsl(var(--primary))]" />
+              <div className="flex items-center gap-4 mb-2">
+                 <div className="p-3 rounded-full bg-[hsl(var(--primary))] text-primary-foreground">
+                   <Globe className="h-8 w-8" />
+                </div>
                 <CardTitle className="text-2xl font-semibold text-[hsl(var(--heading-blue))]">For Job Seekers</CardTitle>
               </div>
             </CardHeader>
-            <CardContent>
-              <CardDescription className="mb-6 text-foreground/80">
-                Discover exciting career opportunities in the Middle East. We connect you with leading employers in your field of expertise.
+            <CardContent className="flex-grow">
+              <CardDescription className="mb-6 text-foreground/70 text-base">
+                Discover exciting career opportunities in the Middle East and beyond. We connect you with leading employers in your field, supporting your professional journey every step of the way.
               </CardDescription>
+            </CardContent>
+            <CardContent>
               <Link href="/recruits" passHref>
-                <Button variant="outline" className="w-full md:w-auto group">
-                  Find Opportunities <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                <Button variant="outline" className="w-full group border-[hsl(var(--primary))] text-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))] hover:text-primary-foreground">
+                  Explore Roles <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
             </CardContent>
@@ -71,13 +79,13 @@ export default function HomePage() {
         </div>
       </SectionWrapper>
 
-      <SectionWrapper id="why-us">
-        <div className="text-center mb-12">
+      <SectionWrapper id="why-us" className="py-16 md:py-20">
+        <div className="text-center mb-16">
           <h2 className="text-3xl font-bold tracking-tight text-[hsl(var(--heading-blue))] sm:text-4xl">
-            Why Choose Nitin International Bridge?
+            Why Partner with Nitin International?
           </h2>
-          <p className="mt-4 text-lg text-foreground/80">
-            Your trusted partner in international recruitment.
+          <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto">
+            Your trusted strategic partner in global talent acquisition and career advancement.
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
@@ -88,25 +96,25 @@ export default function HomePage() {
           />
           <FeatureCard
             icon={Cog}
-            title="Specialized Sourcing"
-            description="Proven track record in sourcing highly skilled engineers, nurses, and other niche professionals."
+            title="Precision Sourcing"
+            description="Proven track record in sourcing highly skilled engineers, nurses, and other niche professionals with tailored strategies."
           />
           <FeatureCard
-            icon={Stethoscope}
+            icon={Stethoscope} 
             title="Dedicated Support"
-            description="Comprehensive support throughout the recruitment process for both employers and candidates."
+            description="Comprehensive, personalized support throughout the recruitment process for both employers and candidates."
           />
         </div>
-        <div className="text-center mt-12">
+        <div className="text-center mt-16">
           <Link href="/specializations" passHref>
-            <Button size="lg" variant="default" className="bg-[hsl(var(--accent))] hover:bg-[hsl(var(--accent))]/90 text-accent-foreground">
-              Learn More About Our Specializations
+            <Button size="lg" variant="default">
+              Learn About Our Specializations
             </Button>
           </Link>
         </div>
       </SectionWrapper>
       
-      <SectionWrapper id="cta-contact" className="bg-muted">
+      <SectionWrapper id="cta-contact" className="bg-muted py-16 md:py-20">
          <div className="text-center">
            <h2 className="text-3xl font-bold tracking-tight text-[hsl(var(--heading-blue))] sm:text-4xl">
              Ready to Take the Next Step?
@@ -114,9 +122,9 @@ export default function HomePage() {
            <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto">
              Whether you're looking to hire top talent or find your dream job abroad, we're here to help. Get in touch with our expert team today.
            </p>
-           <div className="mt-8">
+           <div className="mt-10">
              <Link href="/contact" passHref>
-               <Button size="lg" variant="default" className="bg-[hsl(var(--accent))] hover:bg-[hsl(var(--accent))]/90 text-accent-foreground">
+               <Button size="lg" variant="default">
                  Contact Us Today
                </Button>
              </Link>

@@ -15,6 +15,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { ContactFormSchema, type ContactFormValues } from "@/lib/types";
+import { Send } from "lucide-react";
 
 export function ContactForm() {
   const { toast } = useToast();
@@ -34,14 +35,15 @@ export function ContactForm() {
     toast({
       title: "Message Sent!",
       description: "Thank you for contacting us. We will get back to you as soon as possible.",
+      variant: "default",
     });
     form.reset();
   }
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <div className="grid md:grid-cols-2 gap-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <div className="grid md:grid-cols-2 gap-x-6 gap-y-4">
           <FormField
             control={form.control}
             name="name"
@@ -99,8 +101,8 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" size="lg" className="w-full md:w-auto bg-[hsl(var(--accent))] hover:bg-[hsl(var(--accent))]/90 text-accent-foreground">
-          Send Message
+        <Button type="submit" size="lg" className="w-full md:w-auto">
+          Send Message <Send className="ml-2 h-4 w-4" />
         </Button>
       </form>
     </Form>

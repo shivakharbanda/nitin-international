@@ -15,10 +15,10 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { href: '/', label: 'Home' },
-  { href: '/recruiters', label: 'For Recruiters' },
-  { href: '/recruits', label: 'For Recruits' },
+  { href: '/recruiters', label: 'For Employers' }, // Updated label
+  { href: '/recruits', label: 'For Job Seekers' }, // Updated label
   { href: '/specializations', label: 'Specializations' },
-  { href: '/process-info', label: 'Process Info' },
+  { href: '/process-info', label: 'Process & Terms' }, // Updated label
   { href: '/contact', label: 'Contact Us' },
 ];
 
@@ -55,8 +55,8 @@ export default function SiteHeader() {
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
           <Link href="/" className="flex items-center gap-2 text-lg font-semibold text-[hsl(var(--heading-blue))]">
-            <Briefcase className="h-6 w-6" />
-            <span>Nitin International Bridge</span>
+            <Briefcase className="h-6 w-6 text-[hsl(var(--primary))]" />
+            <span>Nitin International</span>
           </Link>
           <div className="h-8 w-8 animate-pulse rounded-md bg-muted md:hidden" /> {/* Skeleton for menu button */}
         </div>
@@ -69,8 +69,8 @@ export default function SiteHeader() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2 text-lg font-semibold text-[hsl(var(--heading-blue))]">
-          <Briefcase className="h-6 w-6" />
-          <span>Nitin Int'l Bridge</span>
+          <Briefcase className="h-6 w-6 text-[hsl(var(--primary))]" />
+          <span>Nitin International</span>
         </Link>
 
         <nav className="hidden md:flex items-center space-x-1">
@@ -89,9 +89,9 @@ export default function SiteHeader() {
             </SheetTrigger>
             <SheetContent side="right" className="w-full max-w-xs bg-background p-6">
               <div className="mb-6 flex items-center justify-between">
-                <Link href="/" className="flex items-center gap-2 text-lg font-semibold text-[hsl(var(--heading-blue))]">
-                 <Briefcase className="h-6 w-6" />
-                  <span>Nitin Int'l Bridge</span>
+                <Link href="/" className="flex items-center gap-2 text-lg font-semibold text-[hsl(var(--heading-blue))]" onClick={() => setIsMobileMenuOpen(false)}>
+                 <Briefcase className="h-6 w-6 text-[hsl(var(--primary))]" />
+                  <span>Nitin International</span>
                 </Link>
                 <SheetClose asChild>
                    <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)}>

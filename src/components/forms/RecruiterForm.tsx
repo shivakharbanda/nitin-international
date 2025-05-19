@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -16,6 +15,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { RecruiterFormSchema, type RecruiterFormValues } from "@/lib/types";
+import { Send } from "lucide-react";
 
 export function RecruiterForm() {
   const { toast } = useToast();
@@ -39,14 +39,15 @@ export function RecruiterForm() {
     toast({
       title: "Form Submitted!",
       description: "Thank you, we have received your requirements and will be in touch shortly.",
+      variant: "default",
     });
     form.reset();
   }
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <div className="grid md:grid-cols-2 gap-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <div className="grid md:grid-cols-2 gap-x-6 gap-y-4">
           <FormField
             control={form.control}
             name="companyName"
@@ -119,7 +120,9 @@ export function RecruiterForm() {
               <FormItem>
                 <FormLabel>Number of Vacancies</FormLabel>
                 <FormControl>
-                  <Input type="number" min="1" {...field} />
+                   <Input type="number" min="1" {...field} 
+                    onChange={e => field.onChange(parseInt(e.target.value,10) || 1)}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -160,8 +163,8 @@ export function RecruiterForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" size="lg" className="w-full md:w-auto bg-[hsl(var(--accent))] hover:bg-[hsl(var(--accent))]/90 text-accent-foreground">
-          Submit Requirements
+        <Button type="submit" size="lg" className="w-full md:w-auto">
+          Submit Requirements <Send className="ml-2 h-4 w-4" />
         </Button>
       </form>
     </Form>
