@@ -1,7 +1,9 @@
+
 import { Metadata } from 'next';
+import Link from 'next/link';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
 import { ContactForm } from '@/components/forms/ContactForm';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, Globe } from 'lucide-react';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
@@ -35,23 +37,23 @@ export default function ContactPage() {
                 <MapPin className="h-6 w-6 text-[hsl(var(--primary))] mt-1 shrink-0" />
                 <div>
                   <h3 className="font-semibold text-lg">Our Office</h3>
-                  <p className="text-foreground/80">123 Recruitment Drive, Talent City, TC 45678</p>
-                  <p className="text-foreground/80">Global Operations Hub</p>
+                  <p className="text-foreground/80">34, Corner Market, Malviya Nagar,</p>
+                  <p className="text-foreground/80">New Delhi - 110017, India</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <Phone className="h-6 w-6 text-[hsl(var(--primary))] mt-1 shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-lg">Phone</h3>
+                  <h3 className="font-semibold text-lg">Mobile</h3>
                   <p className="text-foreground/80">
-                    <a href="tel:+1234567890" className="hover:text-[hsl(var(--primary))] transition-colors">
-                      +1 (234) 567-890
-                    </a> (Main Office)
+                    <a href="tel:+919818001166" className="hover:text-[hsl(var(--primary))] transition-colors">
+                      +91 9818001166
+                    </a>
                   </p>
                    <p className="text-foreground/80">
-                    <a href="tel:+0987654321" className="hover:text-[hsl(var(--primary))] transition-colors">
-                      +0 (987) 654-321
-                    </a> (Candidate Support)
+                    <a href="tel:+919818968885" className="hover:text-[hsl(var(--primary))] transition-colors">
+                      +91 9818968885
+                    </a>
                   </p>
                 </div>
               </div>
@@ -60,31 +62,32 @@ export default function ContactPage() {
                 <div>
                   <h3 className="font-semibold text-lg">Email</h3>
                   <p className="text-foreground/80">
-                    <a href="mailto:info@nitinint.com" className="hover:text-[hsl(var(--primary))] transition-colors">
-                      info@nitinint.com
-                    </a> (General Inquiries)
+                    <a href="mailto:hr.nitininternational@gmail.com" className="hover:text-[hsl(var(--primary))] transition-colors">
+                      hr.nitininternational@gmail.com
+                    </a>
                   </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <Globe className="h-6 w-6 text-[hsl(var(--primary))] mt-1 shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-lg">Website</h3>
                   <p className="text-foreground/80">
-                    <a href="mailto:careers@nitinint.com" className="hover:text-[hsl(var(--primary))] transition-colors">
-                      careers@nitinint.com
-                    </a> (Job Seekers)
-                  </p>
-                   <p className="text-foreground/80">
-                    <a href="mailto:partners@nitinint.com" className="hover:text-[hsl(var(--primary))] transition-colors">
-                     partners@nitinint.com
-                    </a> (Employers)
+                    <a href="http://www.nitininternational.com" target="_blank" rel="noopener noreferrer" className="hover:text-[hsl(var(--primary))] transition-colors">
+                      www.nitininternational.com
+                    </a>
                   </p>
                 </div>
               </div>
             </div>
             <div className="mt-8">
-                 <Image 
-                    src="https://placehold.co/600x400.png" 
-                    alt="Map illustration showing office location" 
+                 <Image
+                    src="https://placehold.co/600x400.png"
+                    alt="Map illustration showing office location"
                     width={600}
                     height={400}
                     className="rounded-lg shadow-md w-full object-cover"
-                    data-ai-hint="map location"
+                    data-ai-hint="map location India"
                  />
             </div>
           </div>
