@@ -78,9 +78,9 @@ const servicesDropdownItems: DropdownContentItem[] = [
 
 const navItems: NavItem[] = [
   { href: '/', label: 'Home' },
-  { href: '/jobs', label: 'Jobs' },
-  { href: '/recruiters', label: 'For Employers' }, 
-  { href: '/recruits', label: 'For Job Seekers' },   
+  // { href: '/jobs', label: 'Jobs' }, // Removed Jobs link
+  { href: '/recruiters', label: 'For Employers' },
+  { href: '/recruits', label: 'For Job Seekers' },
   { type: 'dropdown', label: 'About', items: aboutDropdownItems },
   { type: 'dropdown', label: 'Services', items: servicesDropdownItems },
   { href: '/contact', label: 'Contact Us' },
@@ -123,7 +123,7 @@ export default function SiteHeader() {
   const isSubmenuActive = (items: NavLinkItem[]) => {
     return items.some(item => isLinkActive(item.href));
   };
-  
+
   const isDropdownActive = (items: DropdownContentItem[]) => {
     return items.some(item => {
       if (item.type === 'submenu') {
@@ -132,7 +132,7 @@ export default function SiteHeader() {
       return isLinkActive(item.href);
     });
   };
-  
+
   if (!isMounted) {
     return (
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -191,8 +191,8 @@ export default function SiteHeader() {
                               <DropdownMenuSubContent className="bg-background shadow-lg">
                                 {subItem.items.map((subSubItem) => (
                                   <DropdownMenuItem key={subSubItem.href} asChild>
-                                    <Link 
-                                      href={subSubItem.href} 
+                                    <Link
+                                      href={subSubItem.href}
                                       className={cn(
                                         "w-full text-left cursor-pointer",
                                         isLinkActive(subSubItem.href) ? "text-[hsl(var(--primary))]" : "text-foreground/80"
@@ -211,8 +211,8 @@ export default function SiteHeader() {
                       }
                       return (
                         <DropdownMenuItem key={subItem.href} asChild>
-                          <Link 
-                            href={subItem.href} 
+                          <Link
+                            href={subItem.href}
                             className={cn(
                               "w-full text-left cursor-pointer",
                               isLinkActive(subItem.href) ? "text-[hsl(var(--primary))]" : "text-foreground/80"
@@ -259,31 +259,31 @@ export default function SiteHeader() {
                   if (item.type === 'dropdown') {
                     const sectionLinks: React.ReactNode[] = [];
                     sectionLinks.push(<div key={`${item.label}-header`} className="px-3 py-2 mt-2 text-sm font-semibold text-muted-foreground">{item.label}</div>);
-                    
+
                     item.items.forEach(subItem => {
                       if (subItem.type === 'submenu') {
                         sectionLinks.push(<div key={`${subItem.label}-subheader`} className="pl-6 px-3 py-1 text-xs font-semibold text-muted-foreground/80">{subItem.label}</div>);
                         subItem.items.forEach(subSubItem => {
                           sectionLinks.push(
-                            <NavLink 
-                              key={subSubItem.href} 
-                              href={subSubItem.href} 
+                            <NavLink
+                              key={subSubItem.href}
+                              href={subSubItem.href}
                               label={subSubItem.label}
                               isExternal={subSubItem.isExternal}
                               onClick={() => setIsMobileMenuOpen(false)}
-                              className="pl-9" 
+                              className="pl-9"
                             />
                           );
                         });
-                      } else { 
+                      } else {
                         sectionLinks.push(
-                          <NavLink 
-                            key={subItem.href} 
-                            href={subItem.href} 
+                          <NavLink
+                            key={subItem.href}
+                            href={subItem.href}
                             label={subItem.label}
                             isExternal={subItem.isExternal}
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="pl-6" 
+                            className="pl-6"
                           />
                         );
                       }
@@ -291,12 +291,12 @@ export default function SiteHeader() {
                     return sectionLinks;
                   }
                   return (
-                    <NavLink 
-                      key={item.href} 
-                      href={item.href} 
-                      label={item.label} 
+                    <NavLink
+                      key={item.href}
+                      href={item.href}
+                      label={item.label}
                       isExternal={item.isExternal}
-                      onClick={() => setIsMobileMenuOpen(false)} 
+                      onClick={() => setIsMobileMenuOpen(false)}
                     />
                   );
                 })}
@@ -308,4 +308,3 @@ export default function SiteHeader() {
     </header>
   );
 }
-
