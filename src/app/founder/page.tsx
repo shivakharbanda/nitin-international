@@ -25,7 +25,7 @@ export default function FounderPage() {
         <div className="grid lg:grid-cols-5 gap-10 items-center">
           <div className="lg:col-span-2">
             <Image
-              src="https://placehold.co/400x500.png"
+              src="/images/owner.jpg"
               alt="Mr. Vimal Kumar Jaitly, Founder of Nitin International"
               width={400}
               height={500}

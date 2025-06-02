@@ -53,13 +53,12 @@ export default function KuwaitEmbassyVisaPage() {
       <SectionWrapper id="kuwait-visa-overview">
         <div className="grid lg:grid-cols-5 gap-10 items-center">
           <div className="lg:col-span-2">
-            <Image
-              src="https://placehold.co/400x400.png" 
+            <img
+              src="/images/Emblem_of_the_State_of_Kuwait.svg"
               alt="Kuwait Emblem"
               width={400}
               height={400}
               className="rounded-lg shadow-md mx-auto object-contain bg-background p-2"
-              data-ai-hint="Kuwait emblem official"
             />
           </div>
           <div className="lg:col-span-3">

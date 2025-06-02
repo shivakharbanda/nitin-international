@@ -16,7 +16,7 @@ export default function HomePage() {
         ctaText="Discover Your Next Opportunity"
         ctaLink="/specializations"
         ctaVariant="default"
-        imageSrc="https://placehold.co/700x500.png"
+        imageSrc="/images/home_image1.png"
         imageAlt="Global business network"
         imageAiHint="global business"
         contentAlignment="left"

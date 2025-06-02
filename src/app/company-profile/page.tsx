@@ -40,7 +40,7 @@ export default function CompanyProfilePage() {
           </div>
           <div>
             <Image
-              src="https://placehold.co/500x350.png"
+              src="/images/about_us_img.png"
               alt="Team working collaboratively in an office"
               width={500}
               height={350}
