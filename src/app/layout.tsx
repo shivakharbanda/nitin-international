@@ -5,6 +5,8 @@ import { Toaster } from "@/components/ui/toaster";
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
 
+import { Analytics } from "@vercel/analytics/next"
+
 const inter = Inter({
   variable: '--font-geist-sans', // Keep CSS variable name for compatibility
   subsets: ['latin'],
@@ -32,6 +34,7 @@ export default function RootLayout({
         <SiteHeader />
         <main className="flex-grow">
           {children}
+          <Analytics />
         </main>
         <SiteFooter />
         <Toaster />
