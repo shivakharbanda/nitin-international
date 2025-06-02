@@ -1,10 +1,11 @@
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { HeroSection } from '@/components/ui/HeroSection';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
 import { FeatureCard } from '@/components/ui/FeatureCard';
-import { Briefcase, Users, Cog, Stethoscope, ArrowRight, Target, BuildingIcon, Globe } from 'lucide-react';
+import { Briefcase, Users, Cog, Stethoscope, ArrowRight, Target, BuildingIcon, Globe, FileCheck2 } from 'lucide-react';
 import Image from 'next/image';
 
 export default function HomePage() {
@@ -31,7 +32,7 @@ export default function HomePage() {
             Whether you're an organization seeking top-tier professionals or an individual ready for a new challenge, we have you covered.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
           <Card className="shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-card flex flex-col">
             <CardHeader>
               <div className="flex items-center gap-4 mb-2">
@@ -72,6 +73,30 @@ export default function HomePage() {
               <Link href="/recruits" passHref>
                 <Button variant="outline" className="w-full group border-[hsl(var(--primary))] text-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))] hover:text-primary-foreground">
                   Explore Roles <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
+          <Card className="shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-card flex flex-col">
+            <CardHeader>
+              <div className="flex items-center gap-4 mb-2">
+                 <div className="p-3 rounded-full bg-[hsl(var(--accent))] text-accent-foreground">
+                   <FileCheck2 className="h-8 w-8" />
+                </div>
+                <CardTitle className="text-2xl font-semibold text-[hsl(var(--heading-blue))]">For Documentation & Visa Support</CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent className="flex-grow">
+              <CardDescription className="mb-6 text-foreground/70 text-base">
+                Get hassle-free support with MEA Apostille, Embassy Attestation, and Visa Application services. 
+                Whether you're preparing to work abroad or need document legalization for travel, 
+                we manage the end-to-end process — document collection, authentication, embassy coordination, and submission.
+              </CardDescription>
+            </CardContent>
+            <CardContent>
+              <Link href="/contact" passHref>
+                <Button variant="outline" className="w-full group border-[hsl(var(--accent))] text-[hsl(var(--accent))] hover:bg-[hsl(var(--accent))] hover:text-accent-foreground">
+                  Start Processing <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
             </CardContent>
