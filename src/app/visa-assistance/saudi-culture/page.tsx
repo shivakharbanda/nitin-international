@@ -43,13 +43,12 @@ export default function SaudiCultureVisaPage() {
       <SectionWrapper id="saudi-culture-overview">
         <div className="grid lg:grid-cols-5 gap-10 items-center">
           <div className="lg:col-span-2">
-            <Image
-              src="https://placehold.co/400x400.png" // Placeholder for cultural/educational imagery
-              alt="Saudi Cultural Attaché relevant imagery"
-              width={350}
-              height={350}
+            <img
+              src="/images/Emblem_of_Saudi_Arabia.svg.png"
+              alt="Kuwait Emblem"
+              width={400}
+              height={400}
               className="rounded-lg shadow-md mx-auto object-contain bg-background p-2"
-              data-ai-hint="Saudi Arabia education culture"
             />
           </div>
           <div className="lg:col-span-3">

@@ -82,7 +82,7 @@ export default function ContactPage() {
             </div>
             <div className="mt-8">
                  <Image
-                    src="https://placehold.co/600x400.png"
+                    src="/images/contact_us.png"
                     alt="Map illustration showing office location"
                     width={600}
                     height={400}
