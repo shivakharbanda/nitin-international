@@ -29,15 +29,28 @@ export function ContactForm() {
     },
   });
 
-  function onSubmit(data: ContactFormValues) {
-    console.log("Contact Form Data:", data);
-    // Here you would typically send the data to your backend (e.g., email service or database)
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for contacting us. We will get back to you as soon as possible.",
-      variant: "default",
-    });
-    form.reset();
+  async function onSubmit(data: ContactFormValues) {
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error('Failed to submit');
+      toast({
+        title: 'Message Sent!',
+        description: 'Thank you for contacting us. We will get back to you as soon as possible.',
+        variant: 'default',
+      });
+      form.reset();
+    } catch (err) {
+      console.error(err);
+      toast({
+        title: 'Submission failed',
+        description: 'Please try again later.',
+        variant: 'destructive',
+      });
+    }
   }
 
   return (
