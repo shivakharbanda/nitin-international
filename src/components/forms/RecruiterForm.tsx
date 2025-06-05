@@ -33,15 +33,28 @@ export function RecruiterForm() {
     },
   });
 
-  function onSubmit(data: RecruiterFormValues) {
-    console.log("Recruiter Form Data:", data);
-    // Here you would typically send the data to your backend
-    toast({
-      title: "Form Submitted!",
-      description: "Thank you, we have received your requirements and will be in touch shortly.",
-      variant: "default",
-    });
-    form.reset();
+  async function onSubmit(data: RecruiterFormValues) {
+    try {
+      const res = await fetch('/api/recruiter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error('Failed to submit');
+      toast({
+        title: 'Form Submitted!',
+        description: 'Thank you, we have received your requirements and will be in touch shortly.',
+        variant: 'default',
+      });
+      form.reset();
+    } catch (err) {
+      console.error(err);
+      toast({
+        title: 'Submission failed',
+        description: 'Please try again later.',
+        variant: 'destructive',
+      });
+    }
   }
 
   return (
