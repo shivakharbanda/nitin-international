@@ -9,7 +9,7 @@ export const supabase = createClient(publicUrl, anonKey)
 
 // Server-side credentials (service role)
 const serviceUrl = (process.env.SUPABASE_URL as string) || publicUrl
-const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY as string
+const serviceKey = (process.env.SUPABASE_SERVICE_ROLE_KEY as string) || anonKey
 
-// Server instance with elevated privileges
+// Server instance with elevated privileges (falls back to anon key if service key is missing)
 export const supabaseServer = createClient(serviceUrl, serviceKey)

@@ -20,7 +20,7 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=
 SUPABASE_SERVICE_ROLE_KEY=
 ```
 
-`NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` are used in the browser, while `SUPABASE_SERVICE_ROLE_KEY` is used server-side for the API routes.
+`NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` are used in the browser. `SUPABASE_SERVICE_ROLE_KEY` is optional and only required if your API routes need elevated privileges.
 
 ## Running Locally
 

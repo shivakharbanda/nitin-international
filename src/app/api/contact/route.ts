@@ -6,7 +6,7 @@ export async function POST(req: NextRequest) {
   const { error } = await supabaseServer.from('contact_messages').insert(data)
   if (error) {
     console.error('Supabase insert error', error)
-    return NextResponse.json({ error: 'Unable to save message' }, { status: 500 })
+    return NextResponse.json({ error: error.message }, { status: 500 })
   }
   return NextResponse.json({ success: true })
 }
