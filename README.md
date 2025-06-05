@@ -6,7 +6,21 @@ To get started, take a look at `src/app/page.tsx`.
 
 ## Environment Variables
 
-Create a `.env` file based on `.env.example` and provide your Supabase credentials.
+Create a `.env` file based on `.env.example` and provide your Supabase credentials. The following variables are expected:
+
+```
+POSTGRES_URL=
+POSTGRES_PRISMA_URL=
+SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_URL=
+POSTGRES_URL_NON_POOLING=
+SUPABASE_JWT_SECRET=
+POSTGRES_USER=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
+```
+
+`NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` are used in the browser, while `SUPABASE_SERVICE_ROLE_KEY` is used server-side for the API routes.
 
 ## Running Locally
 
