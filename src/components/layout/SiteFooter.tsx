@@ -43,6 +43,9 @@ export default function SiteFooter() {
               <Link href="/company-profile#privacy" className="text-sm hover:text-foreground transition-colors">
                 Privacy Policy
               </Link>
+              <Link href="/refunds-cancellation" className="text-sm hover:text-foreground transition-colors">
+                Refunds & Cancellation Policy
+              </Link>
               <Link href="/contact" className="text-sm hover:text-foreground transition-colors">
                 Contact Us
               </Link>
