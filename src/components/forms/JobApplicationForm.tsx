@@ -39,23 +39,30 @@ export function JobApplicationForm({ jobId, jobTitle }: JobApplicationFormProps)
     },
   });
 
-  function onSubmit(data: JobApplicationFormValues) {
-    console.log("Job Application Form Data:", data);
-    // Handle file upload logic if a file is present
-    // if (data.cvFile) { // cvFile is now File | undefined
-    //   const file = data.cvFile;
-    //   console.log("CV File to upload:", file.name, file.size, file.type);
-    //   // Implement actual file upload to a server/storage here
-    // }
-    toast({
-      title: `Application for ${data.jobTitle} Submitted!`,
-      description: "Thank you for your application. We will review your profile and contact you if there's a suitable opportunity.",
-      variant: "default",
-    });
-    form.reset(); 
-    // Keep jobId and jobTitle in form after reset for potential resubmission or UI consistency
-     form.setValue('jobId', jobId);
-     form.setValue('jobTitle', jobTitle);
+  async function onSubmit(data: JobApplicationFormValues) {
+    try {
+      const res = await fetch('/api/job-application', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error('Failed to submit');
+      toast({
+        title: `Application for ${data.jobTitle} Submitted!`,
+        description: "Thank you for your application. We will review your profile and contact you if there's a suitable opportunity.",
+        variant: 'default',
+      });
+      form.reset();
+      form.setValue('jobId', jobId);
+      form.setValue('jobTitle', jobTitle);
+    } catch (err) {
+      console.error(err);
+      toast({
+        title: 'Submission failed',
+        description: 'Please try again later.',
+        variant: 'destructive',
+      });
+    }
   }
 
   return (

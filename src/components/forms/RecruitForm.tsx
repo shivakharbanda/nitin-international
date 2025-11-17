@@ -33,20 +33,28 @@ export function RecruitForm() {
     },
   });
 
-  function onSubmit(data: RecruitFormValues) {
-    console.log("Recruit Form Data:", data);
-    // Handle file upload logic if a file is present
-    // if (data.cvFile && data.cvFile.length > 0) {
-    //   const file = data.cvFile[0];
-    //   console.log("CV File to upload:", file.name, file.size, file.type);
-    //   // Implement actual file upload to a server/storage here
-    // }
-    toast({
-      title: "Application Submitted!",
-      description: "Thank you for your application. We will review your profile and contact you if there's a suitable opportunity.",
-      variant: "default",
-    });
-    form.reset();
+  async function onSubmit(data: RecruitFormValues) {
+    try {
+      const res = await fetch('/api/recruit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error('Failed to submit');
+      toast({
+        title: 'Application Submitted!',
+        description: "Thank you for your application. We will review your profile and contact you if there's a suitable opportunity.",
+        variant: 'default',
+      });
+      form.reset();
+    } catch (err) {
+      console.error(err);
+      toast({
+        title: 'Submission failed',
+        description: 'Please try again later.',
+        variant: 'destructive',
+      });
+    }
   }
 
   return (
