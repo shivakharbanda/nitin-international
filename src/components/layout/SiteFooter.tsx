@@ -61,7 +61,7 @@ export default function SiteFooter() {
             <span>{currentYear} Nitin International. All rights reserved.</span>
           </div>
           <p className="text-xs text-center md:text-right">
-            Website Designed & Developed by AI
+            Website Designed & Developed by <a href='https://shiva.wtf/'>Shiva</a>
           </p>
         </div>
       </div>
