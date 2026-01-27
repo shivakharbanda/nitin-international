@@ -2,6 +2,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
+import { PageHeader } from '@/components/ui/PageHeader';
 import { FeatureCard } from '@/components/ui/FeatureCard';
 import { Button } from '@/components/ui/button';
 import { Handshake, Globe, Users, Puzzle, Clock, Target, Briefcase, Mail } from 'lucide-react';
@@ -71,17 +72,11 @@ const flexibilityPoints = [
 export default function BusinessAlliancePage() {
   return (
     <>
-      <SectionWrapper className="bg-muted">
-        <div className="text-center">
-          <Handshake className="mx-auto h-16 w-16 text-[hsl(var(--primary))] mb-4" />
-          <h1 className="text-4xl font-bold tracking-tight text-[hsl(var(--heading-blue))] sm:text-5xl">
-            Strategic Business Alliances
-          </h1>
-          <p className="mt-6 text-lg leading-8 text-foreground/80 max-w-3xl mx-auto">
-            Partner with Nitin International to leverage our extensive experience in sourcing top-tier talent from India. We welcome collaborations with overseas recruitment agencies and businesses worldwide.
-          </p>
-        </div>
-      </SectionWrapper>
+      <PageHeader
+        icon={Handshake}
+        title="Strategic Business Alliances"
+        description="Partner with Nitin International to leverage our extensive experience in sourcing top-tier talent from India. We welcome collaborations with overseas recruitment agencies and businesses worldwide."
+      />
       
       <SectionWrapper id="why-partner" className="py-16 md:py-20">
         <div className="text-center mb-12">

@@ -40,6 +40,9 @@ body {
 
     --heading-blue: 217 91% 60%; /* #3B82F6 */
 
+    --surface-dark: 20 14% 9%; /* Warm dark stone #1c1917 */
+    --surface-warm: 30 25% 87%; /* Light tan #E8DED4 */
+
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;

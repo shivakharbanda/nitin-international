@@ -6,7 +6,8 @@ import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
-import { Menu, X, Briefcase, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import {
   DropdownMenu,
@@ -78,7 +79,6 @@ const servicesDropdownItems: DropdownContentItem[] = [
 
 const navItems: NavItem[] = [
   { href: '/', label: 'Home' },
-  // { href: '/jobs', label: 'Jobs' }, // Removed Jobs link
   { href: '/recruiters', label: 'For Employers' },
   { href: '/recruits', label: 'For Job Seekers' },
   { type: 'dropdown', label: 'About', items: aboutDropdownItems },
@@ -100,10 +100,10 @@ export default function SiteHeader() {
       variant="ghost"
       asChild
       className={cn(
-        "text-sm font-medium w-full md:w-auto justify-start px-3 py-2 md:px-4",
+        "text-sm font-medium w-full md:w-auto justify-start px-3 py-2 md:px-4 hover:bg-white/10",
         pathname === href
-          ? "text-[hsl(var(--primary))] hover:text-[hsl(var(--primary))]/90"
-          : "text-foreground/80 hover:text-foreground",
+          ? "text-[hsl(var(--primary))]"
+          : "text-stone-300 hover:text-white",
         className
       )}
       onClick={onClick}
@@ -135,24 +135,36 @@ export default function SiteHeader() {
 
   if (!isMounted) {
     return (
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
-          <Link href="/" className="flex items-center gap-2 text-lg font-semibold text-[hsl(var(--heading-blue))]">
-            <Briefcase className="h-6 w-6 text-[hsl(var(--primary))]" />
-            <span>Nitin International</span>
+      <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[hsl(var(--surface-dark))]">
+        <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
+          <Link href="/" className="flex items-center gap-3">
+            <Image
+              src="/images/nitin-international logo.png"
+              alt="Nitin International Logo"
+              width={40}
+              height={40}
+              className="rounded"
+            />
+            <span className="text-white text-xl font-bold tracking-tight">Nitin International</span>
           </Link>
-          <div className="h-8 w-8 animate-pulse rounded-md bg-muted md:hidden" />
+          <div className="h-8 w-8 animate-pulse rounded-md bg-white/10 md:hidden" />
         </div>
       </header>
     );
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
-        <Link href="/" className="flex items-center gap-2 text-lg font-semibold text-[hsl(var(--heading-blue))]">
-          <Briefcase className="h-6 w-6 text-[hsl(var(--primary))]" />
-          <span>Nitin International</span>
+    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[hsl(var(--surface-dark))] backdrop-blur supports-[backdrop-filter]:bg-[hsl(var(--surface-dark))]/95">
+      <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
+        <Link href="/" className="flex items-center gap-3">
+          <Image
+            src="/images/nitin-international logo.png"
+            alt="Nitin International Logo"
+            width={40}
+            height={40}
+            className="rounded"
+          />
+          <span className="text-white text-xl font-bold tracking-tight">Nitin International</span>
         </Link>
 
         <nav className="hidden md:flex items-center space-x-1">
@@ -164,38 +176,38 @@ export default function SiteHeader() {
                     <Button
                       variant="ghost"
                       className={cn(
-                        "text-sm font-medium flex items-center gap-1 px-3 py-2 md:px-4",
+                        "text-sm font-medium flex items-center gap-1 px-3 py-2 md:px-4 hover:bg-white/10",
                         isDropdownActive(item.items)
-                          ? "text-[hsl(var(--primary))] hover:text-[hsl(var(--primary))]/90"
-                          : "text-foreground/80 hover:text-foreground"
+                          ? "text-[hsl(var(--primary))]"
+                          : "text-stone-300 hover:text-white"
                       )}
                     >
                       {item.label}
                       <ChevronDown className="h-4 w-4" />
                     </Button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="start" className="bg-background shadow-lg">
+                  <DropdownMenuContent align="start" className="bg-[hsl(var(--surface-dark))] border-white/10 shadow-lg">
                     {item.items.map((subItem) => {
                       if (subItem.type === 'submenu') {
                         return (
                           <DropdownMenuSub key={subItem.label}>
                             <DropdownMenuSubTrigger
                               className={cn(
-                                "w-full text-left cursor-pointer flex justify-between",
-                                isSubmenuActive(subItem.items) ? "text-[hsl(var(--primary))]" : "text-foreground/80"
+                                "w-full text-left cursor-pointer flex justify-between hover:bg-white/10",
+                                isSubmenuActive(subItem.items) ? "text-[hsl(var(--primary))]" : "text-stone-300 hover:text-white"
                               )}
                             >
                               <span>{subItem.label}</span>
                             </DropdownMenuSubTrigger>
                             <DropdownMenuPortal>
-                              <DropdownMenuSubContent className="bg-background shadow-lg">
+                              <DropdownMenuSubContent className="bg-[hsl(var(--surface-dark))] border-white/10 shadow-lg">
                                 {subItem.items.map((subSubItem) => (
-                                  <DropdownMenuItem key={subSubItem.href} asChild>
+                                  <DropdownMenuItem key={subSubItem.href} asChild className="hover:bg-white/10 focus:bg-white/10">
                                     <Link
                                       href={subSubItem.href}
                                       className={cn(
                                         "w-full text-left cursor-pointer",
-                                        isLinkActive(subSubItem.href) ? "text-[hsl(var(--primary))]" : "text-foreground/80"
+                                        isLinkActive(subSubItem.href) ? "text-[hsl(var(--primary))]" : "text-stone-300 hover:text-white"
                                       )}
                                       target={subSubItem.isExternal ? "_blank" : undefined}
                                       rel={subSubItem.isExternal ? "noopener noreferrer" : undefined}
@@ -210,12 +222,12 @@ export default function SiteHeader() {
                         );
                       }
                       return (
-                        <DropdownMenuItem key={subItem.href} asChild>
+                        <DropdownMenuItem key={subItem.href} asChild className="hover:bg-white/10 focus:bg-white/10">
                           <Link
                             href={subItem.href}
                             className={cn(
                               "w-full text-left cursor-pointer",
-                              isLinkActive(subItem.href) ? "text-[hsl(var(--primary))]" : "text-foreground/80"
+                              isLinkActive(subItem.href) ? "text-[hsl(var(--primary))]" : "text-stone-300 hover:text-white"
                             )}
                             target={subItem.isExternal ? "_blank" : undefined}
                             rel={subItem.isExternal ? "noopener noreferrer" : undefined}
@@ -236,19 +248,25 @@ export default function SiteHeader() {
         <div className="md:hidden">
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Open menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-full max-w-xs bg-background p-6 overflow-y-auto">
+            <SheetContent side="right" className="w-full max-w-xs bg-[hsl(var(--surface-dark))] border-white/10 p-6 overflow-y-auto">
               <div className="mb-6 flex items-center justify-between">
-                <Link href="/" className="flex items-center gap-2 text-lg font-semibold text-[hsl(var(--heading-blue))]" onClick={() => setIsMobileMenuOpen(false)}>
-                 <Briefcase className="h-6 w-6 text-[hsl(var(--primary))]" />
-                  <span>Nitin International</span>
+                <Link href="/" className="flex items-center gap-3" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Image
+                    src="/images/nitin-international logo.png"
+                    alt="Nitin International Logo"
+                    width={32}
+                    height={32}
+                    className="rounded"
+                  />
+                  <span className="text-white text-lg font-bold">Nitin International</span>
                 </Link>
                 <SheetClose asChild>
-                   <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)}>
+                   <Button variant="ghost" size="icon" className="text-white hover:bg-white/10" onClick={() => setIsMobileMenuOpen(false)}>
                     <X className="h-6 w-6" />
                     <span className="sr-only">Close menu</span>
                   </Button>
@@ -258,11 +276,11 @@ export default function SiteHeader() {
                 {navItems.flatMap((item) => {
                   if (item.type === 'dropdown') {
                     const sectionLinks: React.ReactNode[] = [];
-                    sectionLinks.push(<div key={`${item.label}-header`} className="px-3 py-2 mt-2 text-sm font-semibold text-muted-foreground">{item.label}</div>);
+                    sectionLinks.push(<div key={`${item.label}-header`} className="px-3 py-2 mt-2 text-sm font-semibold text-white/50">{item.label}</div>);
 
                     item.items.forEach(subItem => {
                       if (subItem.type === 'submenu') {
-                        sectionLinks.push(<div key={`${subItem.label}-subheader`} className="pl-6 px-3 py-1 text-xs font-semibold text-muted-foreground/80">{subItem.label}</div>);
+                        sectionLinks.push(<div key={`${subItem.label}-subheader`} className="pl-6 px-3 py-1 text-xs font-semibold text-white/40">{subItem.label}</div>);
                         subItem.items.forEach(subSubItem => {
                           sectionLinks.push(
                             <NavLink

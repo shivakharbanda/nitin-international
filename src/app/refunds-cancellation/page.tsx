@@ -1,6 +1,7 @@
 
 import { Metadata } from 'next';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
+import { PageHeader } from '@/components/ui/PageHeader';
 import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { FileText, AlertCircle } from 'lucide-react';
@@ -13,17 +14,11 @@ export const metadata: Metadata = {
 export default function RefundsCancellationPage() {
   return (
     <>
-      <SectionWrapper className="bg-muted">
-        <div className="text-center">
-          <FileText className="mx-auto h-16 w-16 text-[hsl(var(--primary))] mb-4" />
-          <h1 className="text-4xl font-bold tracking-tight text-[hsl(var(--heading-blue))] sm:text-5xl">
-            Refunds & Cancellation Policy
-          </h1>
-          <p className="mt-6 text-lg leading-8 text-foreground/80 max-w-3xl mx-auto">
-            Clear information about our refund and cancellation terms for flight bookings, holiday packages, and other services.
-          </p>
-        </div>
-      </SectionWrapper>
+      <PageHeader
+        icon={FileText}
+        title="Refunds & Cancellation Policy"
+        description="Clear information about our refund and cancellation terms for flight bookings, holiday packages, and other services."
+      />
 
       <SectionWrapper>
         <div className="max-w-4xl mx-auto">

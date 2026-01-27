@@ -2,7 +2,8 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
-import { UserCircle } from 'lucide-react'; // Or another suitable icon
+import { PageHeader } from '@/components/ui/PageHeader';
+import { UserCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Our Founder - Nitin International',
@@ -12,14 +13,10 @@ export const metadata: Metadata = {
 export default function FounderPage() {
   return (
     <>
-      <SectionWrapper className="bg-muted">
-        <div className="text-center">
-          <UserCircle className="mx-auto h-16 w-16 text-[hsl(var(--primary))] mb-4" />
-          <h1 className="text-4xl font-bold tracking-tight text-[hsl(var(--heading-blue))] sm:text-5xl">
-            Meet Our Founder
-          </h1>
-        </div>
-      </SectionWrapper>
+      <PageHeader
+        icon={UserCircle}
+        title="Meet Our Founder"
+      />
       
       <SectionWrapper id="founder" className="py-16 md:py-20">
         <div className="grid lg:grid-cols-5 gap-10 items-center">

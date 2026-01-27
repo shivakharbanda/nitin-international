@@ -2,6 +2,7 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
+import { PageHeader } from '@/components/ui/PageHeader';
 import { ContactForm } from '@/components/forms/ContactForm';
 import { FileText, CheckSquare, Mail, ShieldCheck, Building } from 'lucide-react';
 
@@ -31,17 +32,11 @@ const visaStampingDocsPlaceholder = [
 export default function SaudiEmbassyVisaPage() {
   return (
     <>
-      <SectionWrapper className="bg-muted">
-        <div className="text-center">
-          <Building className="mx-auto h-16 w-16 text-[hsl(var(--primary))] mb-4" />
-          <h1 className="text-4xl font-bold tracking-tight text-[hsl(var(--heading-blue))] sm:text-5xl">
-            Saudi Embassy Visa Assistance
-          </h1>
-          <p className="mt-6 text-lg leading-8 text-foreground/80 max-w-3xl mx-auto">
-            Nitin International provides comprehensive support for all visa application and document attestation procedures pertaining to the Royal Embassy of Saudi Arabia, New Delhi.
-          </p>
-        </div>
-      </SectionWrapper>
+      <PageHeader
+        icon={Building}
+        title="Saudi Embassy Visa Assistance"
+        description="Nitin International provides comprehensive support for all visa application and document attestation procedures pertaining to the Royal Embassy of Saudi Arabia, New Delhi."
+      />
 
       <SectionWrapper id="saudi-visa-overview">
         <div className="grid lg:grid-cols-5 gap-10 items-center">

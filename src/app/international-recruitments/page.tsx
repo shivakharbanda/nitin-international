@@ -2,6 +2,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
+import { PageHeader } from '@/components/ui/PageHeader';
 import { Globe } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -12,18 +13,11 @@ export const metadata: Metadata = {
 export default function InternationalRecruitmentsPage() {
   return (
     <>
-      <SectionWrapper className="bg-muted">
-        <div className="text-center">
-          <Globe className="mx-auto h-16 w-16 text-[hsl(var(--primary))] mb-4" />
-          <h1 className="text-4xl font-bold tracking-tight text-[hsl(var(--heading-blue))] sm:text-5xl">
-            International Recruitments
-          </h1>
-          <p className="mt-6 text-lg leading-8 text-foreground/80 max-w-3xl mx-auto">
-            Detailed content for our International Recruitment services will be added here soon.
-            Nitin International offers comprehensive solutions for sourcing and placing top-tier global talent.
-          </p>
-        </div>
-      </SectionWrapper>
+      <PageHeader
+        icon={Globe}
+        title="International Recruitments"
+        description="Detailed content for our International Recruitment services will be added here soon. Nitin International offers comprehensive solutions for sourcing and placing top-tier global talent."
+      />
 
       <SectionWrapper>
         <div className="text-center">
