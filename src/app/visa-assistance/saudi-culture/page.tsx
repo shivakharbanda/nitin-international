@@ -2,8 +2,9 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
+import { PageHeader } from '@/components/ui/PageHeader';
 import { ContactForm } from '@/components/forms/ContactForm';
-import { FileText, CheckSquare, Mail, ShieldCheck, BookOpen } from 'lucide-react'; // Using BookOpen for culture/education
+import { FileText, CheckSquare, Mail, ShieldCheck, BookOpen } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Saudi Cultural Attaché Visa & Attestation - Nitin International',
@@ -28,17 +29,11 @@ const visaDocsCulturePlaceholder = [
 export default function SaudiCultureVisaPage() {
   return (
     <>
-      <SectionWrapper className="bg-muted">
-        <div className="text-center">
-          <BookOpen className="mx-auto h-16 w-16 text-[hsl(var(--primary))] mb-4" />
-          <h1 className="text-4xl font-bold tracking-tight text-[hsl(var(--heading-blue))] sm:text-5xl">
-            Saudi Cultural Attaché Assistance
-          </h1>
-          <p className="mt-6 text-lg leading-8 text-foreground/80 max-w-3xl mx-auto">
-            Nitin International offers specialized guidance for visa applications and document attestations that fall under the purview of the Saudi Cultural Attaché, primarily concerning educational and academic qualifications.
-          </p>
-        </div>
-      </SectionWrapper>
+      <PageHeader
+        icon={BookOpen}
+        title="Saudi Cultural Attaché Assistance"
+        description="Nitin International offers specialized guidance for visa applications and document attestations that fall under the purview of the Saudi Cultural Attaché, primarily concerning educational and academic qualifications."
+      />
 
       <SectionWrapper id="saudi-culture-overview">
         <div className="grid lg:grid-cols-5 gap-10 items-center">

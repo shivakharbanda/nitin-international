@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
+import { PageHeader } from '@/components/ui/PageHeader';
 import { RecruiterForm } from '@/components/forms/RecruiterForm';
 import { Briefcase, Users, Zap, Building } from 'lucide-react';
 
@@ -11,18 +12,11 @@ export const metadata: Metadata = {
 export default function RecruitersPage() {
   return (
     <>
-      <SectionWrapper className="bg-muted">
-        <div className="text-center">
-          <Building className="mx-auto h-16 w-16 text-[hsl(var(--primary))] mb-4" />
-          <h1 className="text-4xl font-bold tracking-tight text-[hsl(var(--heading-blue))] sm:text-5xl">
-            Find Exceptional Talent
-          </h1>
-          <p className="mt-6 text-lg leading-8 text-foreground/80 max-w-2xl mx-auto">
-            At Nitin International, we specialize in connecting organizations like yours with highly skilled and motivated professionals.
-            Fill out the form below to tell us about your hiring needs.
-          </p>
-        </div>
-      </SectionWrapper>
+      <PageHeader
+        icon={Building}
+        title="Find Exceptional Talent"
+        description="At Nitin International, we specialize in connecting organizations like yours with highly skilled and motivated professionals. Fill out the form below to tell us about your hiring needs."
+      />
 
       <SectionWrapper>
         <div className="grid lg:grid-cols-5 gap-12 items-start">

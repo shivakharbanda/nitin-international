@@ -1,7 +1,7 @@
 
 import { Metadata } from 'next';
-import Link from 'next/link';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
+import { PageHeader } from '@/components/ui/PageHeader';
 import { ContactForm } from '@/components/forms/ContactForm';
 import { Mail, Phone, MapPin, Globe } from 'lucide-react';
 import Image from 'next/image';
@@ -14,17 +14,11 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <SectionWrapper className="bg-muted">
-        <div className="text-center">
-          <Mail className="mx-auto h-16 w-16 text-[hsl(var(--primary))] mb-4" />
-          <h1 className="text-4xl font-bold tracking-tight text-[hsl(var(--heading-blue))] sm:text-5xl">
-            Get in Touch
-          </h1>
-          <p className="mt-6 text-lg leading-8 text-foreground/80 max-w-2xl mx-auto">
-            We're here to assist you with your recruitment needs or career aspirations. Reach out to us through any of the channels below, or use the form to send a direct message.
-          </p>
-        </div>
-      </SectionWrapper>
+      <PageHeader
+        icon={Mail}
+        title="Get in Touch"
+        description="We're here to assist you with your recruitment needs or career aspirations. Reach out to us through any of the channels below, or use the form to send a direct message."
+      />
 
       <SectionWrapper>
         <div className="grid lg:grid-cols-2 gap-12 items-start">

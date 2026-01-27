@@ -4,6 +4,7 @@
 import type { Metadata } from 'next';
 import { useState, useEffect, useMemo } from 'react';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
+import { PageHeader } from '@/components/ui/PageHeader';
 import { JobCard } from '@/components/ui/JobCard';
 import type { JobListing } from '@/lib/types';
 import { Input } from '@/components/ui/input';
@@ -149,17 +150,11 @@ export default function JobsPage() {
 
   return (
     <>
-      <SectionWrapper className="bg-muted/50 pt-12 pb-8">
-        <div className="text-center">
-          <Briefcase className="mx-auto h-16 w-16 text-[hsl(var(--primary))] mb-4" />
-          <h1 className="text-4xl font-bold tracking-tight text-[hsl(var(--heading-blue))] sm:text-5xl">
-            Find Your Next Opportunity
-          </h1>
-          <p className="mt-4 text-lg leading-8 text-foreground/80 max-w-2xl mx-auto">
-            Browse through our current job openings and take the next step in your career.
-          </p>
-        </div>
-      </SectionWrapper>
+      <PageHeader
+        icon={Briefcase}
+        title="Find Your Next Opportunity"
+        description="Browse through our current job openings and take the next step in your career."
+      />
 
       <SectionWrapper className="py-8">
         {/* Filters Section */}

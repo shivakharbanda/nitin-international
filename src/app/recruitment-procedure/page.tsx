@@ -1,6 +1,7 @@
 
 import { Metadata } from 'next';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
+import { PageHeader } from '@/components/ui/PageHeader';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { GitBranch, Briefcase, Users } from 'lucide-react';
 
@@ -12,17 +13,11 @@ export const metadata: Metadata = {
 export default function RecruitmentProcedurePage() {
   return (
     <>
-      <SectionWrapper className="bg-muted">
-        <div className="text-center">
-          <GitBranch className="mx-auto h-16 w-16 text-[hsl(var(--primary))] mb-4" />
-          <h1 className="text-4xl font-bold tracking-tight text-[hsl(var(--heading-blue))] sm:text-5xl">
-            Our Recruitment Procedure
-          </h1>
-          <p className="mt-6 text-lg leading-8 text-foreground/80 max-w-3xl mx-auto">
-            We follow a meticulous and collaborative process to ensure a seamless experience for both employers and candidates. Our procedure is designed for efficiency, transparency, and successful placements.
-          </p>
-        </div>
-      </SectionWrapper>
+      <PageHeader
+        icon={GitBranch}
+        title="Our Recruitment Procedure"
+        description="We follow a meticulous and collaborative process to ensure a seamless experience for both employers and candidates. Our procedure is designed for efficiency, transparency, and successful placements."
+      />
 
       <SectionWrapper id="recruitment-steps" className="py-16 md:py-20">
         <Card className="mb-10 shadow-md bg-card">

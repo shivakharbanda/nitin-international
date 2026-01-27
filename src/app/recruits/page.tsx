@@ -1,6 +1,7 @@
 
 import { Metadata } from 'next';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
+import { PageHeader } from '@/components/ui/PageHeader';
 import { RecruitForm } from '@/components/forms/RecruitForm';
 import { UserCheck, Globe, Award, TrendingUp } from 'lucide-react';
 
@@ -12,18 +13,11 @@ export const metadata: Metadata = {
 export default function RecruitsPage() {
   return (
     <>
-      <SectionWrapper className="bg-muted">
-        <div className="text-center">
-          <UserCheck className="mx-auto h-16 w-16 text-[hsl(var(--primary))] mb-4" />
-          <h1 className="text-4xl font-bold tracking-tight text-[hsl(var(--heading-blue))] sm:text-5xl">
-            Unlock Your Career Potential
-          </h1>
-          <p className="mt-6 text-lg leading-8 text-foreground/80 max-w-2xl mx-auto">
-            Your next career adventure starts here. Nitin International connects talented professionals like you with leading employers in dynamic industries.
-            Submit your profile by filling out the form below.
-          </p>
-        </div>
-      </SectionWrapper>
+      <PageHeader
+        icon={UserCheck}
+        title="Unlock Your Career Potential"
+        description="Your next career adventure starts here. Nitin International connects talented professionals like you with leading employers in dynamic industries. Submit your profile by filling out the form below."
+      />
 
       <SectionWrapper>
          <div className="grid lg:grid-cols-5 gap-12 items-start">

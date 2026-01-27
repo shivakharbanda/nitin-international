@@ -1,6 +1,7 @@
 
 import { Metadata } from 'next';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
+import { PageHeader } from '@/components/ui/PageHeader';
 import { FeatureCard } from '@/components/ui/FeatureCard';
 import { Stethoscope, TerminalSquare, ConciergeBell, Users, Building, HardHat, Car, Lightbulb } from 'lucide-react';
 
@@ -63,17 +64,11 @@ const specializationsList = [
 export default function SpecializationsPage() {
   return (
     <>
-      <SectionWrapper className="bg-muted">
-        <div className="text-center">
-          <Lightbulb className="mx-auto h-16 w-16 text-[hsl(var(--primary))] mb-4" />
-          <h1 className="text-4xl font-bold tracking-tight text-[hsl(var(--heading-blue))] sm:text-5xl">
-            Our Recruitment Specializations
-          </h1>
-          <p className="mt-6 text-lg leading-8 text-foreground/80 max-w-3xl mx-auto">
-            Nitin International excels in sourcing and placing highly skilled professionals across a diverse range of industries, with a keen focus on the dynamic needs of the Middle East job market and other global employment hubs.
-          </p>
-        </div>
-      </SectionWrapper>
+      <PageHeader
+        icon={Lightbulb}
+        title="Our Recruitment Specializations"
+        description="Nitin International excels in sourcing and placing highly skilled professionals across a diverse range of industries, with a keen focus on the dynamic needs of the Middle East job market and other global employment hubs."
+      />
 
       <SectionWrapper id="specializations-list" className="py-16 md:py-20">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
